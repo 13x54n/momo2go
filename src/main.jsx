@@ -5,19 +5,20 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
+import Landing from "./pages/Landing";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
-    loader: rootLoader,
-    children: [
-      {
-        path: "team",
-        element: <Team />,
-        loader: teamLoader,
-      },
-    ],
+    element: <Landing />,
+    // loader: rootLoader,
+    // children: [
+    //   {
+    //     path: "team",
+    //     element: <Team />,
+    //     loader: teamLoader,
+    //   },
+    // ],
   },
 ]);
 
