@@ -1,16 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import './index.css'
-import Landing from "./pages/Landing";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import 'remixicon/fonts/remixicon.css'
+import "./index.css";
+import DesktopLayout from "./layouts/Desktop";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing />,
+    element: <DesktopLayout />,
     // loader: rootLoader,
     // children: [
     //   {
@@ -22,6 +20,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <RouterProvider router={router} />
-)
+);
