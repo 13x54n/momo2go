@@ -1,0 +1,69 @@
+.navbarDesktop__container {
+  background: #fff;
+}
+.navbarDesktop__container .locationDialog__container .MuiButton-root {
+  border-radius: 500px;
+  text-transform: capitalize;
+  color: #000;
+  padding: 8px 12px;
+  line-height: 16px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  background: #eeeeee;
+}
+.navbarDesktop__container .locationDialog__container .MuiButton-root:hover {
+  background: #e2e2e2;
+}
+.navbarDesktop__container .searchContainer {
+  border-radius: 500px;
+  padding: 8px 12px;
+  line-height: 16px;
+  height: 48px;
+  font-size: 14px;
+  border: none;
+  background: #eeeeee;
+}
+.navbarDesktop__container .searchContainer input {
+  background: transparent;
+}
+.navbarDesktop__container .searchContainer input:focus {
+  outline: none;
+}
+.navbarDesktop__container .searchContainer input::-moz-placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+.navbarDesktop__container .searchContainer input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+.navbarDesktop__container .searchContainer input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #000;
+}
+.navbarDesktop__container .searchContainer input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #000;
+}
+.navbarDesktop__container .searchContainer:hover {
+  background: #e2e2e2;
+}
+.navbarDesktop__container .cartBtnContainer {
+  background: #000;
+  border-radius: 500px;
+  text-transform: capitalize;
+  padding: 8px 16px;
+  line-height: 16px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 14px;
+  border: none;
+  color: #fff;
+}
+.navbarDesktop__container .cartBtnContainer:hover {
+  background: rgb(51, 51, 51);
+}/*# sourceMappingURL=LocationDialog.style.css.map */

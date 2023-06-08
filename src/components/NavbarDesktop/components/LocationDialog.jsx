@@ -1,36 +1,41 @@
 import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import Typography from "@mui/material/Typography";
-import { blue } from "@mui/material/colors";
-
-const emails = ["username@gmail.com", "user02@gmail.com"];
-
+import './styles/LocationDialog.style.css'
 function SimpleDialog(props) {
-  const { onClose, selectedValue, open } = props;
+  const { onClose, open } = props;
 
   const handleClose = () => {
-    onClose(selectedValue);
-  };
-
-  const handleListItemClick = (value) => {
-    onClose(value);
+    onClose();
   };
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <Button>
-        <i className="text-xl ri-close-line"></i>
-      </Button>
-      
+      <div className="p-[24px] w-full flex items-start flex-col dialog">
+        <Button className="p-0" onClick={handleClose}>
+          <i className="text-xl ri-close-line"></i>
+        </Button>
+        <h1 className="text-2xl mb-5">Delivery Details</h1>
+        <div className="deliveryAddressContainer flex items-center w-full justify-between border-b pb-4 mb-2">
+          <div className="flex items-center mr-16">
+            <i className="ri-map-pin-line mr-4"></i>
+            <div className="deliveryAddressContainer__description">
+              <p>25 Mabelle Ave</p>
+              <p>Etobicoke, Ontario M9A 4Y1</p>
+            </div>
+          </div>
+          <Button>Change</Button>
+        </div>
+        <div className="flex items-center w-full justify-between mb-5">
+          <div className="flex items-center">
+            <i className="ri-time-line mr-4"></i>
+            <p>Now</p>
+          </div>
+          <Button>Schedule</Button>
+        </div>
+        <Button className="w-full flex-1">Done</Button>
+      </div>
     </Dialog>
   );
 }
@@ -38,12 +43,10 @@ function SimpleDialog(props) {
 SimpleDialog.propTypes = {
   onClose: PropTypes.func.isRequired,
   open: PropTypes.bool.isRequired,
-  selectedValue: PropTypes.string.isRequired,
 };
 
 export default function LocationDialog() {
   const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState(emails[1]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -51,19 +54,14 @@ export default function LocationDialog() {
 
   const handleClose = (value) => {
     setOpen(false);
-    setSelectedValue(value);
   };
 
   return (
-    <div>
+    <div className="locationDialog__container">
       <Button variant="outlined" onClick={handleClickOpen}>
-        <i className="ri-map-pin-line"></i> <p>25 Mabelle Ave - Now</p>
+        <i className="ri-map-pin-line mr-1"></i> <p>25 Mabelle Ave - Now</p>
       </Button>
-      <SimpleDialog
-        selectedValue={selectedValue}
-        open={open}
-        onClose={handleClose}
-      />
+      <SimpleDialog open={open} onClose={handleClose} />
     </div>
   );
 }
