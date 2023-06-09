@@ -2,9 +2,10 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
-import './styles/LocationDialog.style.css'
+import "./styles/LocationDialog.style.css";
 function SimpleDialog(props) {
   const { onClose, open } = props;
+  const [dialogState, setDialogState] = React.useState('')
 
   const handleClose = () => {
     onClose();
@@ -12,29 +13,27 @@ function SimpleDialog(props) {
 
   return (
     <Dialog onClose={handleClose} open={open}>
-      <div className="p-[24px] w-full flex items-start flex-col dialog">
-        <Button className="p-0" onClick={handleClose}>
-          <i className="text-xl ri-close-line"></i>
-        </Button>
-        <h1 className="text-2xl mb-5">Delivery Details</h1>
-        <div className="deliveryAddressContainer flex items-center w-full justify-between border-b pb-4 mb-2">
-          <div className="flex items-center mr-16">
-            <i className="ri-map-pin-line mr-4"></i>
+      <div className="p-[24px] w-full flex items-start flex-col locationDialog__container__dialog">
+        <i className="text-3xl cursor-pointer font-medium ri-close-line" onClick={handleClose}></i>
+        <h1 className="text-3xl mt-3 mb-7 font-bold">Delivery Details</h1>
+        <div className="deliveryAddressContainer flex items-center w-full justify-between border-b pb-4 mb-4">
+          <div className="flex items-center mr-20">
+            <i className="ri-map-pin-line mr-4 text-xl"></i>
             <div className="deliveryAddressContainer__description">
-              <p>25 Mabelle Ave</p>
-              <p>Etobicoke, Ontario M9A 4Y1</p>
+              <p className="font-semibold">25 Mabelle Ave</p>
+              <p className="font-light">Etobicoke, Ontario M9A 4Y1</p>
             </div>
           </div>
-          <Button>Change</Button>
+          <Button className="actionBtn">Change</Button>
         </div>
-        <div className="flex items-center w-full justify-between mb-5">
+        <div className="flex items-center w-full justify-between mb-10">
           <div className="flex items-center">
-            <i className="ri-time-line mr-4"></i>
+            <i className="ri-time-line mr-4 text-xl"></i>
             <p>Now</p>
           </div>
-          <Button>Schedule</Button>
+          <Button className="actionBtn">Schedule</Button>
         </div>
-        <Button className="w-full flex-1">Done</Button>
+        <Button className="w-full flex-1 closeBtn" onClick={handleClose}>Done</Button>
       </div>
     </Dialog>
   );

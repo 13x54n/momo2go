@@ -66,4 +66,22 @@
 }
 .navbarDesktop__container .cartBtnContainer:hover {
   background: rgb(51, 51, 51);
+}
+
+.locationDialog__container__dialog .MuiButton-root {
+  text-transform: capitalize;
+}
+.locationDialog__container__dialog .MuiButton-root.closeBtn {
+  background: #000;
+  color: #fff;
+  padding: 10px 0;
+}
+.locationDialog__container__dialog .MuiButton-root.actionBtn {
+  height: 36px;
+  padding: 12px;
+  background: #EEEEEE;
+  border-radius: 500px;
+  line-height: 16px;
+  font-weight: 500;
+  color: #000;
 }/*# sourceMappingURL=LocationDialog.style.css.map */

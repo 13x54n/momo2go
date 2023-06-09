@@ -7,7 +7,7 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-import './styles/NavbarMenuDrawer.style.css'
+import "./styles/NavbarMenuDrawer.style.css";
 
 export default function NavbarMenuDrawer() {
   const [state, setState] = React.useState({
@@ -58,7 +58,10 @@ export default function NavbarMenuDrawer() {
       <Button onClick={toggleDrawer(true)}>
         <i className="ri-menu-2-line text-xl"></i>
       </Button>
-      <Drawer open={state["left"]} onClose={toggleDrawer(false)}>
+      <Drawer
+        open={state["left"]}
+        onClose={toggleDrawer(false)}
+      >
         {list("left")}
       </Drawer>
     </div>

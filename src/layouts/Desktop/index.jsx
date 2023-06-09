@@ -3,8 +3,8 @@ import NavbarDesktop from '../../components/NavbarDesktop'
 
 export default function DesktopLayout() {
   return (
-    <React.Fragment className='desktopLayout__container'>
+    <div className='desktopLayout__container'>
         <NavbarDesktop/>
-    </React.Fragment>
+    </div>
   )
 }
