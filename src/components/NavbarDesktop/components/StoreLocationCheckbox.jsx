@@ -1,9 +1,9 @@
 import * as React from "react";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
 import Checkbox from "@mui/material/Checkbox";
 import Stores from "../../../mocks/Stores.json";
+import { useGlobalStore } from "../../../global/Store.global";
 
 export default function StoreLocationCheckbox() {
   const [checked, setChecked] = React.useState(1);
@@ -22,7 +22,7 @@ export default function StoreLocationCheckbox() {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (
           <ListItem
-            key={value}
+            key={index}
             secondaryAction={
               <Checkbox
                 edge="end"
@@ -46,9 +46,9 @@ export default function StoreLocationCheckbox() {
         src={Stores[checked].mapSource}
         width="100%"
         height="250"
-        allowfullscreen={true}
+        allowFullScreen={true}
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer-when-downgrade"
         className="my-2"
       ></iframe>
     </List>
