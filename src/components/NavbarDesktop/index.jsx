@@ -2,12 +2,8 @@ import { Button } from "@mui/material";
 import React from "react";
 import LocationDialog from "./components/LocationDialog";
 import NavbarMenuDrawer from "./components/NavbarMenuDrawer";
-import { useUserStore } from "../../global/User.global";
 
 export default function NavbarDesktop() {
-  const user = useUserStore(state => state.user);
-  console.log(user)
-
   return (
     <nav className="navbarDesktop__container flex items-center gap-10 py-5 px-5">
       <NavbarMenuDrawer />

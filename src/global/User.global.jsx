@@ -2,10 +2,7 @@ import { create } from 'zustand'
 
 const initialUserState = {
   authenticated: false,
-  userDetails: {
-    userName: "",
-    userAddress: ""
-  }
+  storeDetails: []
 }
 
 export const useUserStore = create((set) => ({

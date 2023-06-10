@@ -75,6 +75,7 @@
   background: #000;
   color: #fff;
   padding: 10px 0;
+  min-width: 27vw;
 }
 .locationDialog__container__dialog .MuiButton-root.actionBtn {
   height: 36px;
@@ -84,4 +85,7 @@
   line-height: 16px;
   font-weight: 500;
   color: #000;
+}
+.locationDialog__container__dialog .scheduledDateTimePicker, .locationDialog__container__dialog .storeLocationsCheckbox__container {
+  min-width: 27vw;
 }/*# sourceMappingURL=LocationDialog.style.css.map */
