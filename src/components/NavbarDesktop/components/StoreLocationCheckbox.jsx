@@ -1,11 +1,9 @@
-import * as React from 'react';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Checkbox from '@mui/material/Checkbox';
-import Avatar from '@mui/material/Avatar';
+import * as React from "react";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import Checkbox from "@mui/material/Checkbox";
+import Stores from "../../../mocks/Stores.json";
 
 export default function StoreLocationCheckbox() {
   const [checked, setChecked] = React.useState(1);
@@ -15,8 +13,12 @@ export default function StoreLocationCheckbox() {
   };
 
   return (
-    <List className='storeLocationsCheckbox__container' dense sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {[0, 1, 2, 3].map((value) => {
+    <List
+      className="storeLocationsCheckbox__container"
+      dense
+      sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+    >
+      {Stores.map((value, index) => {
         const labelId = `checkbox-list-secondary-label-${value}`;
         return (
           <ListItem
@@ -24,25 +26,31 @@ export default function StoreLocationCheckbox() {
             secondaryAction={
               <Checkbox
                 edge="end"
-                onChange={handleToggle(value)}
-                checked={checked === value && true}
-                inputProps={{ 'aria-labelledby': labelId }}
+                onChange={handleToggle(index)}
+                checked={checked === index && true}
+                inputProps={{ "aria-labelledby": labelId }}
               />
             }
             disablePadding
           >
-            <ListItemButton>
-              <ListItemAvatar>
-                <Avatar
-                  alt={`Avatar n°${value + 1}`}
-                  src={`/static/images/avatar/${value + 1}.jpg`}
-                />
-              </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
-            </ListItemButton>
+            <div className="cursor-pointer mb-2" onClick={handleToggle(index)}>
+              <div className="flex flex-col">
+                <p className="text-base font-medium">{value?.name}</p>
+                <p className="text-sm font-light">{value?.location}</p>
+              </div>
+            </div>
           </ListItem>
         );
       })}
+      <iframe
+        src={Stores[checked].mapSource}
+        width="100%"
+        height="250"
+        allowfullscreen={true}
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        className="my-2"
+      ></iframe>
     </List>
   );
 }

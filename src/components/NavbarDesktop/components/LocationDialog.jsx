@@ -58,9 +58,12 @@ function SimpleDialog(props) {
             </div>
           </>
         )}
-        {dialogState === "newDeliveryLocation" && <div>
-        <StoreLocationCheckbox/>
-            </div>}
+        {dialogState === "newDeliveryLocation" && (
+          <div>
+            <h1 className="text-3xl mt-3 mb-1 font-bold">Branch Details</h1>
+            <StoreLocationCheckbox />
+          </div>
+        )}
         {dialogState === "newDeliverySchedule" && (
           <div className="mb-7">
             <h1 className="text-3xl mt-3 mb-7 font-bold">Schedule Pickup</h1>

@@ -1,0 +1,48 @@
+[
+    {
+        "name": "Momo2Go",
+        "location": "The Queensway, Toronto",
+        "openHours": [
+            "12-10"
+        ],
+        "mapSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2888.102354696811!2d-79.51106622376082!3d43.62522855423936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3af2ddf90def%3A0x5a255a697c99655a!2sMomo2Go%20Queensway!5e0!3m2!1sen!2sca!4v1686402719690!5m2!1sen!2sca"
+    },
+    {
+        "name": "Momo2Go",
+        "location": "60 Resolution Dr H101, Brampton",
+        "openHours": [
+            "12-10"
+        ],
+        "mapSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2885.563232486582!2d-79.72377432375836!3d43.678052750822964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3fbfd325b025%3A0x2ce0362d612fcc1d!2sMomo2Go%20-%20Brampton!5e0!3m2!1sen!2sca!4v1686402759234!5m2!1sen!2sca"
+    },
+    {
+        "name": "Momo2Go",
+        "location": "Albion Mall, Etobicoke",
+        "openHours": [
+            "12-6",
+            "12-5",
+            "12-8",
+            "12-8",
+            "12-8",
+            "12-8",
+            "12-8"
+        ],
+        "mapSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2882.499742661212!2d-79.58679422375542!3d43.74171814670122!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3af2e0d3e947%3A0x4bcd87400b8b19c3!2sMomo2Go%20-%20Albion%20Mall!5e0!3m2!1sen!2sca!4v1686402798864!5m2!1sen!2sca"
+    },
+    {
+        "name": "Momo2Go",
+        "location": "Rexdale Blvd, Etobicoke",
+        "openHours": [
+            "12-10"
+        ],
+        "mapSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2883.4931465854734!2d-79.61634182375641!3d43.7210813480378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b3bbbdaf1fa25%3A0xe346777e35d69963!2sMomo2Go%20-%20Rexdale!5e0!3m2!1sen!2sca!4v1686402838798!5m2!1sen!2sca"
+    },
+    {
+        "name": "Himalayan Kitchen",
+        "location": "Queen St W, Toronto",
+        "openHours": [
+            "12-10"
+        ],
+        "mapSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.3792815421702!2d-79.44148242396862!3d43.64027665326686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b35b22869f82f%3A0xf573786fdd39816!2sHimalayan%20Kitchen!5e0!3m2!1sen!2sca!4v1686402607130!5m2!1sen!2sca"
+    }
+]
