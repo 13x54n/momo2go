@@ -14,12 +14,12 @@ const initialGlobalState = {
 
 export const useGlobalStore = create((set) => ({
   ...initialGlobalState,
-  setUserLocation: (latitude, longitude) =>
+  setUserLocation: (longitude, latitude) =>
     set((state) => ({
       ...state,
       userLocation: {
-        latitude,
         longitude,
+        latitude,
       },
     })),
   setStoreDetails: (activeStore, allStores) =>
@@ -28,6 +28,14 @@ export const useGlobalStore = create((set) => ({
       storeDetails: {
         activeStore,
         allStores,
+      },
+    })),
+  updateActiveStore: (activeStore) =>
+    set((state) => ({
+      ...state,
+      storeDetails: {
+        activeStore,
+        allStores: state.storeDetails.allStores,
       },
     })),
 }));

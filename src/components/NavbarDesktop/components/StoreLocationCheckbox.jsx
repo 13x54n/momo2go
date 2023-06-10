@@ -6,10 +6,13 @@ import Stores from "../../../mocks/Stores.json";
 import { useGlobalStore } from "../../../global/Store.global";
 
 export default function StoreLocationCheckbox() {
-  const [checked, setChecked] = React.useState(1);
+  const [checked, setChecked] = React.useState(0);
 
-  const handleToggle = (value) => () => {
-    setChecked(value);
+  const updateActiveStore = useGlobalStore((state) => state.updateActiveStore);
+
+  const handleToggle = (index, value) => () => {
+    setChecked(index);
+    updateActiveStore(value);
   };
 
   return (
@@ -26,7 +29,7 @@ export default function StoreLocationCheckbox() {
             secondaryAction={
               <Checkbox
                 edge="end"
-                onChange={handleToggle(index)}
+                onChange={handleToggle(index, value)}
                 checked={checked === index && true}
                 inputProps={{ "aria-labelledby": labelId }}
               />

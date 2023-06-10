@@ -3,6 +3,7 @@ import NavbarDesktop from "../../components/NavbarDesktop";
 import { useGlobalStore } from "../../global/Store.global";
 
 import Stores from "../../mocks/Stores.json";
+import { calculateNearestStore } from "../../utils/DistanceMatrix";
 
 export default function DesktopLayout() {
   const setUserLocation = useGlobalStore((state) => state.setUserLocation);
@@ -15,9 +16,10 @@ export default function DesktopLayout() {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
           
-          setUserLocation(latitude, longitude);
+          setUserLocation(longitude, latitude);
 
-          
+          calculateNearestStore(longitude, latitude, Stores)
+          setStoreDetails(Stores[0], Stores)
         },
         (error) => {
           console.error(error.message);

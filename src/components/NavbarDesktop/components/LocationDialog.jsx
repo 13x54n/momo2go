@@ -8,12 +8,15 @@ import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 
 import "./styles/LocationDialog.style.css";
 import StoreLocationCheckbox from "./StoreLocationCheckbox";
+import { useGlobalStore } from "../../../global/Store.global";
 function SimpleDialog(props) {
   const { onClose, open, dialogState, handleDialogState } = props;
 
   const handleClose = () => {
     onClose();
   };
+
+  const storeDetails = useGlobalStore(state => state.storeDetails)
 
   return (
     <Dialog onClose={handleClose} open={open}>
@@ -33,8 +36,8 @@ function SimpleDialog(props) {
               <div className="flex items-center mr-20">
                 <i className="ri-map-pin-line mr-4 text-xl"></i>
                 <div className="deliveryAddressContainer__description">
-                  <p className="font-semibold">25 Mabelle Ave</p>
-                  <p className="font-light">Etobicoke, Ontario M9A 4Y1</p>
+                  <p className="font-semibold">{storeDetails?.activeStore?.location}</p>
+                  <p className="font-light">{storeDetails?.activeStore?.fullLocation}</p>
                 </div>
               </div>
               <Button
@@ -97,6 +100,7 @@ SimpleDialog.propTypes = {
 export default function LocationDialog() {
   // @dev dialog states are [newDeliveryLocation, newDeliverySchedule, base]
   const [dialogState, setDialogState] = React.useState("base");
+  const storeDetails = useGlobalStore(state => state.storeDetails)
 
   const handleDialogState = (state) => {
     setDialogState(state);
@@ -113,7 +117,7 @@ export default function LocationDialog() {
   return (
     <div className="locationDialog__container">
       <Button variant="outlined" onClick={handleClickOpen}>
-        <i className="ri-map-pin-line mr-1"></i> <p>25 Mabelle Ave - Now</p>
+        <i className="ri-map-pin-line mr-1"></i> <p>{storeDetails?.activeStore?.location} - Now</p>
       </Button>
       <SimpleDialog
         dialogState={dialogState}
