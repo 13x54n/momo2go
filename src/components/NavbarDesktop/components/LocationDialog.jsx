@@ -37,7 +37,7 @@ function SimpleDialog(props) {
                 <i className="ri-map-pin-line mr-4 text-xl"></i>
                 <div className="deliveryAddressContainer__description">
                   <p className="font-semibold">{storeDetails?.activeStore?.location}</p>
-                  <p className="font-light">{storeDetails?.activeStore?.fullLocation}</p>
+                  <p className="font-light text-sm">{storeDetails?.activeStore?.fullLocation}</p>
                 </div>
               </div>
               <Button
