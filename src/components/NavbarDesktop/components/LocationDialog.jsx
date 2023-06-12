@@ -71,7 +71,7 @@ function SimpleDialog(props) {
           <div className="mb-7">
             <h1 className="text-3xl mt-3 mb-7 font-bold">Schedule Pickup</h1>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateTimePicker className="scheduledDateTimePicker" />
+              <DateTimePicker className="scheduledDateTimePicker" onChange={(e) => console.log(e)}/>
             </LocalizationProvider>
           </div>
         )}

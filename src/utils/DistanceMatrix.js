@@ -1,9 +1,10 @@
 import axios from "axios";
 
+// need to use haver sine formula for distance calculation
 export const calculateNearestStore = (lon, lat, options) => {
   let userLat = lat,
     userLon = lon;
-    console.log(`${userLat},${userLon}`)
+    // console.log(`${userLat},${userLon}`)
   var shortestIndex = 0,
     shortestDistance = 0;
   //   console.log(import.meta.env.VITE_APP_OPENROUTESERVICE_API_KEY);
