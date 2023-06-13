@@ -4,11 +4,13 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 import "./styles/LocationDialog.style.css";
 import StoreLocationCheckbox from "./StoreLocationCheckbox";
 import { useGlobalStore } from "../../../global/Store.global";
+import { format } from "date-fns";
+import moment from "moment";
 function SimpleDialog(props) {
   const { onClose, open, dialogState, handleDialogState } = props;
 
@@ -16,7 +18,12 @@ function SimpleDialog(props) {
     onClose();
   };
 
-  const storeDetails = useGlobalStore(state => state.storeDetails)
+  const storeDetails = useGlobalStore((state) => state.storeDetails);
+  console.log(storeDetails)
+
+  const setUserPickupDateTime = useGlobalStore(
+    (state) => state.setUserPickupDateTime
+  );
 
   return (
     <Dialog onClose={handleClose} open={open}>
@@ -36,8 +43,12 @@ function SimpleDialog(props) {
               <div className="flex items-center mr-20">
                 <i className="ri-map-pin-line mr-4 text-xl"></i>
                 <div className="deliveryAddressContainer__description">
-                  <p className="font-semibold">{storeDetails?.activeStore?.location}</p>
-                  <p className="font-light text-sm">{storeDetails?.activeStore?.fullLocation}</p>
+                  <p className="font-semibold">
+                    {storeDetails?.activeStore?.location}
+                  </p>
+                  <p className="font-light text-sm">
+                    {storeDetails?.activeStore?.fullLocation}
+                  </p>
                 </div>
               </div>
               <Button
@@ -71,7 +82,17 @@ function SimpleDialog(props) {
           <div className="mb-7">
             <h1 className="text-3xl mt-3 mb-7 font-bold">Schedule Pickup</h1>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DateTimePicker className="scheduledDateTimePicker" onChange={(e) => console.log(e)}/>
+              <DatePicker
+                value={storeDetails?.userPickupDateTime}
+                className="scheduledDateTimePicker"
+                onChange={(e) => {
+                  setUserPickupDateTime(e);
+                  console.log(e, storeDetails.userPickupDateTime)
+                }}
+                showTodayButton
+                disablePast
+                format="yyyy-MM-dd"
+              />
             </LocalizationProvider>
           </div>
         )}
@@ -100,7 +121,7 @@ SimpleDialog.propTypes = {
 export default function LocationDialog() {
   // @dev dialog states are [newDeliveryLocation, newDeliverySchedule, base]
   const [dialogState, setDialogState] = React.useState("base");
-  const storeDetails = useGlobalStore(state => state.storeDetails)
+  const storeDetails = useGlobalStore((state) => state.storeDetails);
 
   const handleDialogState = (state) => {
     setDialogState(state);
@@ -117,7 +138,13 @@ export default function LocationDialog() {
   return (
     <div className="locationDialog__container">
       <Button variant="outlined" onClick={handleClickOpen}>
-        <i className="ri-map-pin-line mr-1"></i> <p>{storeDetails?.activeStore?.location} - Now</p>
+        <i className="ri-map-pin-line mr-1"></i>{" "}
+        <p>
+          {storeDetails?.activeStore?.location} -{" "}
+          {storeDetails.userPickupDateTime
+            ? moment(storeDetails.userPickupDateTime).format('LL')
+            : "Now"}
+        </p>
       </Button>
       <SimpleDialog
         dialogState={dialogState}

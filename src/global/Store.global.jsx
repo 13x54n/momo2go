@@ -5,6 +5,7 @@ const initialGlobalState = {
   storeDetails: {
     activeStore: {},
     allStores: [],
+    userPickupDateTime: new Date(),
   },
   userLocation: {
     latitude: "",
@@ -26,6 +27,7 @@ export const useGlobalStore = create((set) => ({
     set((state) => ({
       ...state,
       storeDetails: {
+        ...state.storeDetails,
         activeStore,
         allStores,
       },
@@ -34,8 +36,16 @@ export const useGlobalStore = create((set) => ({
     set((state) => ({
       ...state,
       storeDetails: {
+        ...state.storeDetails,
         activeStore,
-        allStores: state.storeDetails.allStores,
+      },
+    })),
+  setUserPickupDateTime: (userPickupDateTime) =>
+    set((state) => ({
+      ...state,
+      storeDetails: {
+        ...state.storeDetails,
+        userPickupDateTime,
       },
     })),
 }));
