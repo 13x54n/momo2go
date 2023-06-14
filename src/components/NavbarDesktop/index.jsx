@@ -16,7 +16,7 @@ export default function NavbarDesktop() {
       <LocationDialog />
       <div className="searchContainer flex items-center flex-1">
         <i className="ri-search-line mr-1.5"></i>
-        <input className="flex-1" type="text" placeholder="Search in Momo2Go's" />
+        <input className="flex-1" type="text" placeholder="Search in Momo2Go's, What are you Craving?" />
       </div>
       <Button className="cartBtnContainer">
         <i className="ri-shopping-cart-2-line mr-1"></i> <p>0 carts</p>
