@@ -9,8 +9,8 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import "./styles/LocationDialog.style.css";
 import StoreLocationCheckbox from "./StoreLocationCheckbox";
 import { useGlobalStore } from "../../../global/Store.global";
-import { format } from "date-fns";
 import moment from "moment";
+
 function SimpleDialog(props) {
   const { onClose, open, dialogState, handleDialogState } = props;
 
@@ -19,7 +19,6 @@ function SimpleDialog(props) {
   };
 
   const storeDetails = useGlobalStore((state) => state.storeDetails);
-  console.log(storeDetails)
 
   const setUserPickupDateTime = useGlobalStore(
     (state) => state.setUserPickupDateTime
@@ -58,42 +57,12 @@ function SimpleDialog(props) {
                 Change
               </Button>
             </div>
-            <div className="flex items-center w-full justify-between mb-10">
-              <div className="flex items-center">
-                <i className="ri-time-line mr-4 text-xl"></i>
-                <p>Now</p>
-              </div>
-              <Button
-                className="actionBtn"
-                onClick={() => handleDialogState("newDeliverySchedule")}
-              >
-                Schedule
-              </Button>
-            </div>
           </>
         )}
         {dialogState === "newDeliveryLocation" && (
           <div>
             <h1 className="text-3xl mt-3 mb-1 font-bold">Branch Details</h1>
             <StoreLocationCheckbox />
-          </div>
-        )}
-        {dialogState === "newDeliverySchedule" && (
-          <div className="mb-7">
-            <h1 className="text-3xl mt-3 mb-7 font-bold">Schedule Pickup</h1>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                value={storeDetails?.userPickupDateTime}
-                className="scheduledDateTimePicker"
-                onChange={(e) => {
-                  setUserPickupDateTime(e);
-                  console.log(e, storeDetails.userPickupDateTime)
-                }}
-                showTodayButton
-                disablePast
-                format="yyyy-MM-dd"
-              />
-            </LocalizationProvider>
           </div>
         )}
         <Button

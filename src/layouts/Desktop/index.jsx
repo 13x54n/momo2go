@@ -1,9 +1,8 @@
 import React from "react";
 import NavbarDesktop from "../../components/NavbarDesktop";
 import { useGlobalStore } from "../../global/Store.global";
-
 import Stores from "../../mocks/Stores.json";
-import { calculateNearestStore } from "../../utils/DistanceMatrix";
+import { shortestDistance } from "short-distance";
 
 export default function DesktopLayout() {
   const setUserLocation = useGlobalStore((state) => state.setUserLocation);
@@ -15,11 +14,22 @@ export default function DesktopLayout() {
         (position) => {
           const latitude = position.coords.latitude;
           const longitude = position.coords.longitude;
-          
-          setUserLocation(longitude, latitude);
 
-          calculateNearestStore(longitude, latitude, Stores)
-          setStoreDetails(Stores[0], Stores)
+          setUserLocation(latitude, longitude);
+
+          let storeGeoCoordinates = [];
+
+          Stores.forEach((store, index) => {
+            storeGeoCoordinates[index] = store.geoLocationCoords;
+          });
+
+          const shortestStore = shortestDistance(
+            { latitude, longitude },
+            storeGeoCoordinates
+          );
+          const activeStore = Stores[shortestStore?.index];
+
+          setStoreDetails(activeStore, Stores, shortestStore);
         },
         (error) => {
           console.error(error.message);
