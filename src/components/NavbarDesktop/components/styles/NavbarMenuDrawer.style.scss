@@ -10,3 +10,43 @@
     }
   }
 }
+
+.navbarDesktopMenuDrawer {
+  img{
+    width: 10vw;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .divider{
+    border-bottom: 1px solid #c5c5c5;
+    width: 100%;
+    margin: 5px 0;
+  }
+  .MuiButton-root {
+    background: #fff;
+    color: #000;
+    text-transform: capitalize;
+    width: 15vw;
+    justify-content: left;
+    font-size: 16px;
+
+    &:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    &.signUp, &.signIn{
+      padding: 10px;
+    }
+
+    &.signUp{
+      background: #000;
+      color: #fff;
+    }
+
+    &.signIn{
+      background: #f1f1f1;
+    }
+  }
+}

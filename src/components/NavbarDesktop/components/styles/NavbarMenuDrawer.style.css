@@ -6,4 +6,37 @@
 .navbarMenuDrawer__container .MuiButton-root:hover {
   background: #fff;
   color: #000;
+}
+
+.navbarDesktopMenuDrawer img {
+  width: 10vw;
+  display: block;
+  margin: 0 auto;
+}
+.navbarDesktopMenuDrawer .divider {
+  border-bottom: 1px solid #c5c5c5;
+  width: 100%;
+  margin: 5px 0;
+}
+.navbarDesktopMenuDrawer .MuiButton-root {
+  background: #fff;
+  color: #000;
+  text-transform: capitalize;
+  width: 15vw;
+  justify-content: left;
+  font-size: 16px;
+}
+.navbarDesktopMenuDrawer .MuiButton-root:hover {
+  background: #fff;
+  color: #000;
+}
+.navbarDesktopMenuDrawer .MuiButton-root.signUp, .navbarDesktopMenuDrawer .MuiButton-root.signIn {
+  padding: 10px;
+}
+.navbarDesktopMenuDrawer .MuiButton-root.signUp {
+  background: #000;
+  color: #fff;
+}
+.navbarDesktopMenuDrawer .MuiButton-root.signIn {
+  background: #f1f1f1;
 }/*# sourceMappingURL=NavbarMenuDrawer.style.css.map */
