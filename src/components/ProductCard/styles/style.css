@@ -1,0 +1,14 @@
+.productCard__container {
+  position: relative;
+}
+.productCard__container i {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background: rgba(255, 255, 255, 0.5411764706);
+  padding: 0 4px;
+  border-radius: 50%;
+}
+.productCard__container i:hover {
+  color: #ff7675;
+}/*# sourceMappingURL=style.css.map */

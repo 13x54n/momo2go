@@ -5,7 +5,7 @@ import NavbarMenuDrawer from "./components/NavbarMenuDrawer";
 
 export default function NavbarDesktop() {
   return (
-    <nav className="navbarDesktop__container flex items-center gap-10 py-5 px-5">
+    <nav className="navbarDesktop__container flex items-center gap-10 py-5">
       <NavbarMenuDrawer />
       <img
         className="w-36 object-contain"

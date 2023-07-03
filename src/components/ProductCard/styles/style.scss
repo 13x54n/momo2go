@@ -1,0 +1,16 @@
+.productCard__container{
+    position: relative;
+
+    i{
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background: #ffffff8a;
+        padding: 0 4px;
+        border-radius: 50%;
+
+        &:hover{
+            color: #ff7675;
+        }
+    }
+}

@@ -5,6 +5,7 @@ import { shortestDistance } from "short-distance";
 
 import Stores from "../../mocks/Stores.json";
 import FoodCategories from "../../mocks/FoodCategories.json";
+import ProductCard from "../../components/ProductCard";
 
 export default function DesktopLayout() {
   const setUserLocation = useGlobalStore((state) => state.setUserLocation);
@@ -44,18 +45,29 @@ export default function DesktopLayout() {
 
   const CategoryItem = ({ name, iconUrl, index }) => {
     return (
-      <div key={index} className="flex flex-col items-center justify-center cursor-pointer">
-        <img src={iconUrl} alt="" className="h-20"/>
+      <div
+        key={index}
+        className="flex flex-col items-center justify-center cursor-pointer"
+      >
+        <img src={iconUrl} alt="" className="h-20" />
         <p className="text-xs text-center">{name}</p>
       </div>
     );
   };
 
+  const ProductsContainer = ({ children }) => {
+    return (
+      <div className="products overflow-y-scroll flex align-start mt-6 gap-8 flex-wrap">
+        {...children}
+      </div>
+    );
+  };
+
   return (
-    <div className="desktopLayout__container">
+    <div className="desktopLayout__container px-8">
       <NavbarDesktop />
 
-      <div className="desktopLayout__foodCategories px-8 flex flex-row items-center gap-5 overflow-x-scroll">
+      <div className="desktopLayout__foodCategories flex flex-row items-center gap-5 overflow-x-scroll">
         {FoodCategories.map((categoryItem, index) => (
           <CategoryItem
             name={categoryItem.name}
@@ -65,7 +77,26 @@ export default function DesktopLayout() {
         ))}
       </div>
 
-      <div style={{border: ".5px solid #c5c5c5", margin: "30px 2vw"}} className="divider"></div>
+      <div
+        style={{ border: ".5px solid #c5c5c5", margin: "30px 0" }}
+        className="divider"
+      ></div>
+
+      <main className="flex flex-row align-start gap-8">
+        <div className="filters w-1/5">
+          <h1 className="text-2xl font-semibold">All Stores</h1>
+        </div>
+        <div className="productsLists__container flex-1">
+          <div className="desktopLayout__container__peoplesChoice__container">
+            <h1 className="text-3xl font-semibold">People's Choice</h1>
+            <ProductsContainer>
+              {[0, 1, 2, 3, 4, 5, 6, 7].map((val) => (
+                <ProductCard key={val}/>
+              ))}
+            </ProductsContainer>
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
