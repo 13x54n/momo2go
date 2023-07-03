@@ -1,0 +1,10 @@
+.priceRange__Container .MuiButton-root {
+  min-width: 0;
+  background: #eeefef;
+  color: #000;
+  border-radius: 16px;
+}
+.priceRange__Container .MuiButton-root:hover {
+  background: #eeefef;
+  color: #000;
+}/*# sourceMappingURL=PriceRange.css.map */

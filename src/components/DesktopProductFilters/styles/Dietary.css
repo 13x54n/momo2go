@@ -1,0 +1,11 @@
+.dietary__cotnainer .MuiButton-root {
+  min-width: 0;
+  background: #eeefef;
+  color: #000;
+  border-radius: 16px;
+  text-transform: capitalize;
+}
+.dietary__cotnainer .MuiButton-root:hover {
+  background: #eeefef;
+  color: #000;
+}/*# sourceMappingURL=Dietary.css.map */

@@ -1,0 +1,14 @@
+.dietary__cotnainer{
+    .MuiButton-root {
+        min-width: 0;
+        background: #eeefef;
+        color: #000;
+        border-radius: 16px;
+        text-transform: capitalize;
+    
+        &:hover {
+          background: #eeefef;
+          color: #000;
+        }
+      }
+}

@@ -6,6 +6,9 @@ import { shortestDistance } from "short-distance";
 import Stores from "../../mocks/Stores.json";
 import FoodCategories from "../../mocks/FoodCategories.json";
 import ProductCard from "../../components/ProductCard";
+import Sort from "../../components/DesktopProductFilters/Sort";
+import PriceRange from "../../components/DesktopProductFilters/PriceRange";
+import Dietary from "../../components/DesktopProductFilters/Dietary";
 
 export default function DesktopLayout() {
   const setUserLocation = useGlobalStore((state) => state.setUserLocation);
@@ -78,17 +81,25 @@ export default function DesktopLayout() {
       </div>
 
       <div
-        style={{ border: ".5px solid #c5c5c5", margin: "30px 0" }}
+        style={{ border: ".5px solid #c5c5c5", margin: "30px 0 0 0" }}
         className="divider"
       ></div>
 
       <main className="flex flex-row align-start gap-8">
-        <div className="filters w-1/5">
+        <div className="filters w-1/6 pt-6">
           <h1 className="text-2xl font-semibold">All Stores</h1>
+          <p className="text-lg font-medium mt-6 mb-2">Sort</p>
+          <Sort/>
+
+          <p className="text-lg font-medium mt-6 mb-2">Price Range</p>
+          <PriceRange/>
+
+          <p className="text-lg font-medium mt-6 mb-2">Dietary</p>
+          <Dietary/>
         </div>
-        <div className="productsLists__container flex-1">
+        <div className="productsLists__container flex-1 pt-6">
           <div className="desktopLayout__container__peoplesChoice__container">
-            <h1 className="text-3xl font-semibold">People's Choice</h1>
+            <h1 className="text-2xl font-semibold">People's Choice</h1>
             <ProductsContainer>
               {[0, 1, 2, 3, 4, 5, 6, 7].map((val) => (
                 <ProductCard key={val}/>
