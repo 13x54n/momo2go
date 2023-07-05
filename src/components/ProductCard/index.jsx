@@ -6,7 +6,7 @@ export default function ProductCard() {
     <div className="productCard__container text-center cursor-pointer">
       <i className="ri-heart-line"></i>
       <img
-        className="w-60 rounded-lg"
+        className="w-60"
         src="https://images.unsplash.com/photo-1565311456123-0c9ace220ee2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80"
         alt=""
       />
